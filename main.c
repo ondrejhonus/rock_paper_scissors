@@ -50,29 +50,23 @@ int referee(const char* item, const char* comp_item){
         printf("It's a tie!\n");
         return 2;
     }
-    if (strcasecmp(item, "rock\n") == 0){
-        if(strcmp(comp_item, "scissors") == 0){
+    if (strcasecmp(item, "rock\n") == 0) {
+        if (strcmp(comp_item, "scissors\n") == 0) {
             return 0;
         }
-        else{
-            return 1;
-        }
+        return 1;
     }
     if (strcasecmp(item, "paper\n") == 0){
-        if(strcmp(comp_item, "rock") == 0){
+        if(strcmp(comp_item, "rock\n") == 0){
             return 0;
         }
-        else{
-            return 1;
-        }
+        return 1;
     }
     if (strcasecmp(item, "scissors\n") == 0){
-        if(strcmp(comp_item, "paper") == 0){
+        if(strcmp(comp_item, "paper\n") == 0){
             return 0;
         }
-        else{
-            return 1;
-        }
+        return 1;
     }
     return 3;
 }
@@ -88,9 +82,9 @@ int main(void) {
         for (int i = 0; i < strlen(item); ++i) {
             item[i] = tolower(item[i]);
         }
-        printf("You chose %s\n", item);
+        printf("You chose %s", item);
         const char *comp_item = choose();
-        printf("Computer chose %s", comp_item);
+        printf("Computer chose %s\n", comp_item);
         int state = referee(item, comp_item);
         switch (state) {
             case 0:
